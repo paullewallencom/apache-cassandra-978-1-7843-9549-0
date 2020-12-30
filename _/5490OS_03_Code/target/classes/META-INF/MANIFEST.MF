@@ -1,0 +1,12 @@
+Manifest-Version: 1.0
+Implementation-Vendor: The Apache Software Foundation
+Implementation-Title: storm-starter
+Implementation-Version: 0.9.3-incubating-SNAPSHOT
+Implementation-Vendor-Id: org.apache.storm
+Specification-Vendor: The Apache Software Foundation
+Build-Jdk: 1.7.0_45
+Built-By: impadmin
+Created-By: Maven Integration for Eclipse
+Specification-Title: storm-starter
+Specification-Version: 0.9.3-incubating-SNAPSHOT
+

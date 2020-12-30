@@ -1,0 +1,40 @@
+Here are the steps for creation of keyspace and Column family in cassandra:-
+
+1. create keyspace using cqlsh:
+
+:~/sws/apache-cassandra-1.1.6/bin$ ./cqlsh localhost
+Connected to MyClusterName at localhost:9160.
+[cqlsh 2.2.0 | Cassandra 1.1.6 | CQL spec 2.0.0 | Thrift protocol 19.32.0]
+Use HELP for help.
+cqlsh> 
+cqlsh> 
+cqlsh> 
+cqlsh> CREATE KEYSPACE testDB WITH
+   ...      strategy_class = 'SimpleStrategy'
+   ...      AND strategy_options:replication_factor = '1';
+cqlsh> use testDB;
+
+2. Create column family using cli:
+
+create column family test_cf
+  with column_type = 'Standard'
+  and comparator = 'UTF8Type'
+  and default_validation_class = 'UTF8Type'
+  and key_validation_class = 'UTF8Type'
+  and read_repair_chance = 0.1
+  and dclocal_read_repair_chance = 0.0
+  and gc_grace = 0
+  and min_compaction_threshold = 4
+  and max_compaction_threshold = 32
+  and replicate_on_write = true
+  and compaction_strategy = 'org.apache.cassandra.db.compaction.SizeTieredCompactionStrategy'
+  and caching = 'KEYS_ONLY'
+  and compression_options = {'sstable_compression' : 'org.apache.cassandra.io.compress.SnappyCompressor'};
+
+3. output:
+
+cqlsh:testDB> select * from test_cf;
+ KEY | word name
+-----+-----------
+   1 |    record
+
